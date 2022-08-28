@@ -93,7 +93,7 @@ Feel free to dive in! Open an issue or submit PRs.
 
 This project exists thanks to all the people who contribute.
 
-
+![](./image/contributors.png)
 
 ## License
 
