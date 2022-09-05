@@ -1,8 +1,8 @@
 # 无线信道特性超分辨率的多任务学习模型
 
-![banner](D:\python_project\Final_mode_of_MTL\image\net1.png)
+![banner](..\Final_mode_of_MTL\image\net1.png)
 
-![badge](D:\python_project\Final_mode_of_MTL\image\net2.png)
+![badge](..\Final_mode_of_MTL\image\net2.png)
 
 
 
@@ -89,7 +89,7 @@ python mlt_main.py
 
 感谢所有为本项目做出贡献的开发者们！
 
-![](D:\python_project\Final_mode_of_MTL\image\contributors.png)
+![](..\Final_mode_of_MTL\image\contributors.png)
 
 ## 所属
 
