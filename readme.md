@@ -39,7 +39,7 @@ Channel modeling has always been the core part in communication system design an
 
 ### our contribution
 
-Instead of prediction or estimation, we propose a super resolution (SR) model for channel characteristics. The model is based on MTL CNN with residual connection. Overview of our work is shown in Fig.1. Given 3D models of urban areas and the corresponding EM parameters, CloudRT platform outputs channel characteristics dataset and the dataset is used for SR model training. Data from the dataset are degraded into low resolution data as input. Original high resolution data are used as the ground truth. MTL loss is employed to better balance multi tasks. We evaluate our proposed SR model by ablation study and comparisons with other DL models. 
+Instead of prediction or estimation, we propose a super resolution (SR) model for channel characteristics. The model is based on MTL CNN with residual connection. Overview of our work is shown in Figs. Given 3D models of urban areas and the corresponding EM parameters, CloudRT platform outputs channel characteristics dataset and the dataset is used for SR model training. Data from the dataset are degraded into low resolution data as input. Original high resolution data are used as the ground truth. MTL loss is employed to better balance multi tasks. We evaluate our proposed SR model by ablation study and comparisons with other DL models. 
 
 Specifically, we make the **following contributions**:
 
