@@ -1,0 +1,30 @@
+--------------start---------------
+device: cuda
+datapath: /home/project1/ZHY_file/code_backup_08_12/data/all_all_train.npy
+datasplit_or_not: 1
+traindata: /home/project1/ZHY_file/code_backup_08_12/data/only_SH.npy
+testdata: /home/project1/ZHY_file/code_backup_08_12/data/without_SH.npy
+period: 2
+scale: 2
+test_ratio: 0.2
+seed: 42
+batch_size: 1
+step_size: 30
+aug_switch: True
+lr: 1e-05
+gamma: 0.7
+weight_decay: 0
+maskvalue: 1e-05
+epochs_P1: 500
+epochs_P2: 200
+characteristic_index: [0 1 2 3 4 5 6]
+target_index: [1 2 3 4 5 6]
+N_LOS_switch: True
+state: 1
+weight_lastname: MTL_best.pth
+logname: MTL_best.txt
+jpgname: MTL_best.jpg
+csvname: MTL_best.csv
+argsname: argsMTL_best.txt
+wight_lastname: MTL_best.pth
+---------------end----------------

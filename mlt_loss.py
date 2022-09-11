@@ -14,6 +14,13 @@ class traloss0(nn.Module):
         # self.loss_v2 = nn.MSELoss(reduction='none')
 
     def forward(self, yhat, gtruth, mask):
+        """
+        函数功能：计算训练过程，真实值和预测值之间的l1loss，详情计算公式见论文
+        :param yhat: 预测值
+        :param gtruth: 真实值
+        :param mask: 蒙版
+        :return: l1loss损失值
+        """
         yhat = torch.mul(yhat, mask)
         gtruth = torch.mul(gtruth, mask)
         predot = torch.sum(mask, dim=[2, 3])   # 把batch * channel * 200 * 200的矩阵压缩成(batch, channel, 1)的矩阵
@@ -28,6 +35,13 @@ class tesloss0(nn.Module):
         self.loss = nn.L1Loss(reduction='none')
 
     def forward(self, yhat, gtruth, mask):
+        """
+        函数功能：计算测试过程，真实值和预测值之间的l1loss，详情计算公式见论文
+        :param yhat: 预测值
+        :param gtruth: 真实值
+        :param mask: 蒙版
+        :return: l1loss损失值
+        """
         yhat = torch.mul(yhat, mask)
         gtruth = torch.mul(gtruth, mask)
         predot = torch.sum(mask, dim=[2, 3])
@@ -41,6 +55,13 @@ class traloss2(nn.Module):
         super(traloss2, self).__init__()
 
     def forward(self, y_hat, label, mask):
+        """
+        函数功能：计算训练过程，针对los/Nlos的损失函数
+        :param y_hat: 预测值
+        :param label: 真实值
+        :param mask: 蒙版
+        :return: 损失值
+        """
         label = label.long()  # b 1 200 200
         lossmatrix = torch.gather(y_hat, dim=1, index=label)  # b 1 200 200
         lossmatrix = torch.mul(lossmatrix, mask)
@@ -55,6 +76,13 @@ class tesloss2(nn.Module):
         super(tesloss2, self).__init__()
 
     def forward(self, y_hat, label, mask):  # yhat n,3,200,200     mask n,1,200 200
+        """
+        函数功能：计算测试过程，针对los/Nlos计算TPR和FPR
+        :param y_hat: 预测值
+        :param label: 真实值
+        :param mask: 蒙版
+        :return: 损失值
+        """
         premat = torch.argmin(y_hat, dim=1)  # b 1 200 200
         P_pre = torch.mul(torch.where(premat == 0, 1, 0), mask)
         N_pre = torch.mul(torch.where(premat == 1, 1, 0), mask)
@@ -80,8 +108,6 @@ class L1loss_baseline(nn.Module):
         g_truth = torch.mul(g_truth, mask)
         predot = torch.sum(mask, dim=[1, 2, 3])
         ans = torch.sum(self.loss(y_hat, g_truth), dim=[1, 2, 3]) / predot
-        # print("Standard error:",Standard_error(ans.cpu().tolist(),20))
-        # print("Standard error real",Standard_error_real(ans.cpu().tolist(),20))
         return torch.mean(ans, dim=0)
 
 
@@ -92,7 +118,13 @@ class Std(nn.Module):
         self.loss = nn.L1Loss(reduction='none')
 
     def forward(self, y_hat, g_truth, mask):
-        
+        """
+        函数功能：计算真实值和预测值之间的标准差（STDE）
+        :param y_hat: 预测值
+        :param g_truth: 真实值
+        :param mask: 蒙板
+        :return: std标准差
+        """
         y_hat = torch.mul(y_hat, mask)  # b c
         g_truth = torch.mul(g_truth, mask)
         predot = torch.sum(mask, dim=[1, 2, 3]).view(mask.shape[0], 1, 1, 1)  # b 1 1 1
@@ -120,11 +152,14 @@ class bploss(nn.Module):
         self.coefficient33 = nn.Parameter(torch.zeros(1))
         self.coefficient44 = nn.Parameter(torch.zeros(1))
         self.coefficient55 = nn.Parameter(torch.zeros(1))
-        # self.coefficient = torch.cat((self.coefficient1,self.coefficient2,self.coefficient3,self.coefficient4,
-        # self.coefficient5),dim=0).to(args.device)
-        # self.coefficient  = nn.Parameter(torch.randn(size=(self.length,1)))
 
     def forward(self, loss, std):
+        """
+        函数功能：Uncertainty weight，将输入的多任务的loss和std之间按照不同的权重进行再合并
+        :param loss: 输入合并的多任务loss
+        :param std: 输入合并的多任务std
+        :return: 调整后的loss
+        """
         self.coefficient = torch.cat(
             (self.coefficient1, self.coefficient2, self.coefficient3, self.coefficient4, self.coefficient5,
              self.coefficient6), dim=0)
@@ -137,20 +172,3 @@ class bploss(nn.Module):
         # bploss = torch.sum(loss)
         Loss = stdloss + bploss
         return Loss
-
-# def Standard_error(data,num):  #单个样本估算标准误data 中选 num 为样本中数据量
-#     random.seed(42)
-#     sample = random.sample(data, num)
-#     std = np.std(sample,ddof=0)
-#     standard_error=std/np.sqrt(num)
-#     return standard_error
-#
-# def Standard_error_real(data,num):
-#     list_samples = []
-#     random.seed(42)
-#     for i in range(20):
-#         sample = random.sample(data,num)
-#         list_samples.append(sample)
-#     list_samplesMean=[np.mean(i) for i in list_samples]
-#     standard_error_real=np.std(list_samplesMean,ddof=0)
-#     return standard_error_real

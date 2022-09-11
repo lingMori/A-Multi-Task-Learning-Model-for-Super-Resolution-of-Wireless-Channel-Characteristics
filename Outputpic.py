@@ -7,6 +7,13 @@ import torch.nn.functional as F
 import argparse
 import scipy.io
 
+"""
+脚本名称：Outputpic.py
+脚本功能：提取数据集中部分数据，经过插值处理，进行前向传播，得到对比的数据
+脚本输入：channel_data_test
+脚本输出: 'HR_Data': HR_Data, 'LR_Data': LR_Data, 'Origin': Origin
+"""
+
 parser = argparse.ArgumentParser(description='Mltask prediction & classification')
 parser.add_argument('--period', type=int, default=1)
 args = parser.parse_args()

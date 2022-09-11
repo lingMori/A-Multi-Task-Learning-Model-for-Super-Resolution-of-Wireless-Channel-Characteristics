@@ -13,8 +13,8 @@ from pathlib import Path
 
 
 def train(model, args, train_loader, test_loader):
-    trloss = np.repeat(np.nan, 6, axis=0).tolist()   # train_loss 数组在第一维度重复6次
-    teloss = np.repeat(np.nan, 7, axis=0).tolist()   # test_loss
+    trloss = np.repeat(np.nan, 6, axis=0).tolist()   # train_loss空向量的创建
+    teloss = np.repeat(np.nan, 7, axis=0).tolist()   # test_loss 空向量的创建
 
     traloss = mlt_loss.traloss0()
     tesloss = mlt_loss.tesloss0()
