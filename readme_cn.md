@@ -21,7 +21,7 @@
 - [使用方法](#使用方法)
 - [数据集](#数据集)
 - [贡献者](#贡献者)
-- [所属](#所属)
+- [论文](#论文)
 
 ## 背景
 
@@ -91,6 +91,6 @@ python mlt_main.py
 
 ![](./image/contributors.png)
 
-## 所属
+## 论文
 
-no license now.
+https://arxiv.org/abs/2209.04207

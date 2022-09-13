@@ -25,7 +25,7 @@ absolute error and standard deviation of error.
 - [Usage](#usage)
 - [Dataset](#api)
 - [Contributing](#contributing)
-- [License](#license)
+- [Article](#article)
 
 ## Background
 
@@ -95,6 +95,6 @@ This project exists thanks to all the people who contribute.
 
 ![](./image/contributors.png)
 
-## License
+## Article
 
-no license now.
+https://arxiv.org/abs/2209.04207
