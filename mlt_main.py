@@ -2,15 +2,12 @@ from __future__ import print_function
 import os
 import numpy as np
 import torch.utils.data
-from torch.utils.data import DataLoader, Dataset, TensorDataset
 import mlt_dataprocess
 import mlt_model
 import argparse
 import mlt_train0
-import mlt_train1
 import mlt_train3
 import mlt_train2
-import sys
 
 work_dir = os.path.dirname(os.path.abspath(__file__))   # 获取当前文件目录
 Data = os.path.join(work_dir, 'data')                   # 将数据路径添加入主路径当中（适配windows和Linux）

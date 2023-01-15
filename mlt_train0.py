@@ -6,7 +6,6 @@ from torch.optim.lr_scheduler import StepLR
 import torch.optim as optim
 import os
 import torch
-from torch import nn
 import mlt_dataprocess
 import mlt_loss
 from pathlib import Path

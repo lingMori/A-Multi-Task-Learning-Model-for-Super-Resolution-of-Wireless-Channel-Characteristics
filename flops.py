@@ -1,12 +1,7 @@
-from torchvision.models import resnet50
 import torch
-import torchvision.models as models
 # import torch
 import mlt_model
-import mlt_dataprocess
 import numpy as np
-from thop import profile
-from ptflops import get_model_complexity_info
 from ptflops import get_model_complexity_info
 
 characteristic_index = np.array([0, 1, 2, 3, 4, 5, 6])

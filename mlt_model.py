@@ -1,12 +1,3 @@
-import torch
-from torch import nn
-import numpy as np
-from einops import rearrange, repeat
-from einops.layers.torch import Rearrange
-import torch.nn.functional as F
-from model.attention.SEAttention import *
-from model.attention.SKAttention import *
-
 sigmoid = nn.Sigmoid()
 
 
