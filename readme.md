@@ -97,4 +97,4 @@ This project exists thanks to all the people who contribute.
 
 ## Article
 
-[https://arxiv.org/abs/2209.04207](https://ieeexplore.ieee.org/abstract/document/10224827)https://ieeexplore.ieee.org/abstract/document/10224827
+https://ieeexplore.ieee.org/abstract/document/10224827
