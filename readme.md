@@ -4,9 +4,10 @@
 
 ![badge](./image/net2.png)
 
-
-
-[![standard-readme compliant](https://img.shields.io/badge/Multi_Task%20-Super Resolution-brightgreen.svg?style=flat-square)](https://github.com/lingMori/A-Multi-Task-Learning-Model-for-Super-Resolution-of-Wireless-Channel-Characteristics)
+<p>
+   <a href="https://github.com/lingMori/A-Multi-Task-Learning-Model-for-Super-Resolution-of-Wireless-Channel-Characteristics"><img alt="Build Status" src="https://img.shields.io/badge/Multi_Task%20-Super Resolution-brightgreen" /></a>
+   <a href="https://github.com/lingMori/A-Multi-Task-Learning-Model-for-Super-Resolution-of-Wireless-Channel-Characteristics"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
+</p>
 
 
 
