@@ -80,8 +80,7 @@ python mlt_main.py
 
 Workers can use [CloudRT](http://cn.raytracer.cloud:9090/) to build your own Channel Characteristics dataset and package them into a `.mat` file, then put them into the `data` folder. So can we train our own datasets.
 
-**Note**: If you would like to obtain **a** **well-built dataset**, please contact us by email. Our contact email is `wangxiping@bjtu.edu.cn`
-
+**Note**: Please contact us by email `wangxiping@bjtu.edu.cn` if you have any question. Everything AVAILABLE is already here. Please Don't ask for anything not here. Thx
 
 
 ## Contributing
